@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class Biscuit extends Flour {
     private Layer layer;
 
-    public Biscuit(long _number, float _calories, boolean _availability, FlourType flour, int l_quan, String[] l_types)
+    public Biscuit(int _number, float _calories, boolean _availability, FlourType flour, int l_quan, String[] l_types)
             throws DataValidationException {
         super(_number, _calories, _availability, flour);
         if(l_quan != l_types.length) {
