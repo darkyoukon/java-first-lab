@@ -1,6 +1,6 @@
 package ConfectioneryPack;
 
-public abstract class Confection {
+public abstract class Confection implements CaloriesMutable {
     protected long product_num;
     protected float calories;
     protected boolean availability;
@@ -31,9 +31,7 @@ public abstract class Confection {
     public float getCalories(float weight) {
         return this.calories * weight;
     }
-    public float getCalories() {
-        return this.calories;
-    }
+    public float getCalories() { return this.calories; }
 
     public void changeProductNum(long product_num) {
         this.product_num = product_num;

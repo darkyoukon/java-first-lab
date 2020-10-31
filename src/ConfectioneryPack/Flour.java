@@ -1,5 +1,7 @@
 package ConfectioneryPack;
 
+import java.util.Objects;
+
 public class Flour extends Confection {
     private final FlourType flourType;
 
@@ -10,4 +12,15 @@ public class Flour extends Confection {
 
     public FlourType getFlourType() { return flourType; }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Flour other = (Flour) obj;
+        return super.product_num == other.product_num; // ключевое сравнение
+    }
 }
