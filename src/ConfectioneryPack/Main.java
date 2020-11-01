@@ -25,6 +25,9 @@ public class Main {
         if(sample3.equals(sample4)) {
             System.out.println("Flour classes are equal coz of rewritten equals logic.");
         }
+        for(FlourType f_t: FlourType.values()) {
+            System.out.println(f_t + " " + f_t.str_type);
+        }
     }
 
     private static Order formOrder() {
@@ -46,7 +49,7 @@ public class Main {
 
             Order order = new Order(cocoa, cafe_biscuit);
             order.addBiscuit(new Biscuit(313,  150, true,
-                    FlourType.Rye, 4, layers_second));
+                    FlourType.Rye, 3, layers_second));
             return order;
         } catch (DataValidationException err) {
             err.printStackTrace();

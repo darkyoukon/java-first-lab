@@ -33,7 +33,7 @@ public class Biscuit extends Flour {
         return "There're " + layer.layers_quantity + " total layers in yours biscuit: " + this.getAllLayers();
     }
 
-    private class Layer {
+    private static class Layer {
         private int layers_quantity;
         private ArrayList<String> layers_types;
 
