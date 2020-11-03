@@ -1,12 +1,17 @@
 package ConfectioneryPack;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+import ConfectioneryPack.Biscuit;
+import ConfectioneryPack.DataValidationException;
+import ConfectioneryPack.FlourType;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class BiscuitTest {
 
-    @Test(expected = DataValidationException.class)
+    @Test
     public void testIndexOutOfBoundsException() throws DataValidationException {
         //WHAT
         String [] layers = {"Usual", "Jelly", "Fantastic"};
@@ -14,11 +19,15 @@ class BiscuitTest {
         Biscuit testSample;
 
         //WHEN
-        testSample = new Biscuit(312,  330, true,
-                FlourType.Wholegrain, layers_quan, layers);
+        Exception exception = assertThrows(DataValidationException.class, () -> {
+            new Biscuit(312,  330, true,
+                    FlourType.Wholegrain, layers_quan, layers);
+        });
+
+        String actualMessage = exception.getMessage();
 
         //THEN
-        // exception is thrown
+        assertTrue(actualMessage.contains("Unequal constructor layers params!"));
     }
 
     @Test
@@ -27,13 +36,13 @@ class BiscuitTest {
         Biscuit testSample;
         float calories = 1200;
         String [] layers = {"Usual", "Jelly", "Fantastic"};
-        int layers_quan = 2;
+        int layers_quan = 3;
 
         //WHEN
         testSample = new Biscuit(312,  calories, true,
                 FlourType.Wholegrain, layers_quan, layers);
 
         //THEN
-        assertFalse(testSample.getCalories() == calories);
+        assertNotEquals(calories, testSample.getCalories(), 0.0);
     }
 }
