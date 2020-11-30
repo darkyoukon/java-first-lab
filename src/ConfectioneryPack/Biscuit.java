@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Biscuit extends Flour {
-    private Layer layer;
+    private final Layer layer;
 
     public Biscuit(int _number, float _calories, boolean _availability, FlourType flour, int l_quan, String[] l_types)
             throws DataValidationException {
@@ -34,8 +34,8 @@ public class Biscuit extends Flour {
     }
 
     private class Layer {
-        private int layers_quantity;
-        private ArrayList<String> layers_types;
+        private final int layers_quantity;
+        private final ArrayList<String> layers_types;
 
         public Layer(int quantity, String[] types) {
             layers_quantity = quantity;

@@ -17,6 +17,13 @@ public class Order extends Confection {
         biscuits.add(bisc);
     }
 
+    public Order(Cocoa coc) {
+        super(++product_num, coc.getCalories());
+        cocoas = new ArrayList<>();
+        biscuits = new ArrayList<>();
+        cocoas.add(coc);
+    }
+
     public void addCocoa(Cocoa coc) {
         super.addCalories(coc.getCalories());
         cocoas.add(coc);

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class DataValidationException extends Exception {
-    ArrayList<Integer> error_length;
+    final ArrayList<Integer> error_length;
 
     DataValidationException(String message, int code_length, int array_length) {
         super(message);

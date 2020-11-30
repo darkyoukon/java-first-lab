@@ -3,7 +3,7 @@ package ConfectioneryPack;
 import java.util.Objects;
 
 public class Flour extends Confection {
-    private final FlourType flourType;
+    private FlourType flourType;
 
     public Flour(int _number, float _calories, boolean _availability, FlourType flour) {
         super(_number, _calories, _availability);
@@ -11,6 +11,7 @@ public class Flour extends Confection {
     }
 
     public FlourType getFlourType() { return flourType; }
+    public void setFlourType(FlourType _flour_type) { this.flourType = _flour_type; }
 
     @Override
     public boolean equals(Object obj) {

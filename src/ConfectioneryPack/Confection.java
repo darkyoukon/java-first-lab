@@ -29,7 +29,7 @@ public abstract class Confection implements CaloriesMutable {
         this.calories += _calories;
     }
     public float getCalories(float weight) {
-        return this.calories * weight;
+        return (float) (this.calories * weight * .01);
     }
     public float getCalories() { return this.calories; }
 
