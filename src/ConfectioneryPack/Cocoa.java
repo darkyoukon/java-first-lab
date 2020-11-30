@@ -1,3 +1,4 @@
+
 package ConfectioneryPack;
 
 import java.util.ArrayList;
@@ -21,14 +22,20 @@ public class Cocoa {
         for(Marshmallow temp: zephyr) {
             cal_temp += temp.getCalories(milk_ml);
         }
-        return calories;
+        return cal_temp;
     }
 
     public void addZephyr(Marshmallow marshmallow) {
         zephyr.add(marshmallow);
     }
 
+    public void changeSugarCharacteristics(SugarType _sugar_type, int _spoons) {
+        sugaride.changeSugarType(_sugar_type);
+        sugaride.changeSugarSpoons(_spoons);
+    }
+
     public Sugar getSugaride() { return sugaride; }
+    public int getSize() { return zephyr.size(); }
 
     @Override
     public String toString() {

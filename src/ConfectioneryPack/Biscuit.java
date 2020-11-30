@@ -27,6 +27,7 @@ public class Biscuit extends Flour {
     public String getAllLayers() {
         return String.join(", ", layer.layers_types);
     }
+    public int get_layers_quantity() { return layer.get_layer_quantity(); }
 
     @Override
     public String toString() {
@@ -44,5 +45,7 @@ public class Biscuit extends Flour {
                 layers_types.add(temp);
             }
         }
+
+        public int get_layer_quantity() { return layers_quantity; }
     }
 }

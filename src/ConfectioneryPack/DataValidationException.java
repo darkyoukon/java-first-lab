@@ -3,7 +3,7 @@ package ConfectioneryPack;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class DataValidationException extends Exception {
+public class DataValidationException extends RuntimeException {
     ArrayList<Integer> error_length;
 
     DataValidationException(String message, int code_length, int array_length) {

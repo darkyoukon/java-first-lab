@@ -1,7 +1,7 @@
 package ConfectioneryPack;
 
 public class Sugar extends Confection {
-    private final SugarType sugarType;
+    private SugarType sugarType;
     private int spoons;
 
     public Sugar(int _number, float _calories, boolean _availability, SugarType sugar, int quantity) {
@@ -12,4 +12,12 @@ public class Sugar extends Confection {
     }
 
     public SugarType getSugarType() { return sugarType; }
+
+    public void changeSugarType(SugarType _sugarType) {
+        this.sugarType = _sugarType;
+    }
+
+    public void changeSugarSpoons(int _spoons) {
+        this.spoons = _spoons;
+    }
 }
