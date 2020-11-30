@@ -1,13 +1,20 @@
 package ConfectioneryPack;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+import ConfectioneryPack.Biscuit;
+import ConfectioneryPack.DataValidationException;
+import ConfectioneryPack.FlourType;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
 
 class BiscuitTest {
 
-    @Test(expected = DataValidationException.class)
-    public void testIndexOutOfBoundsException() {
+    @Test
+    public void testIndexOutOfBoundsException()  {
         //WHAT
         String [] layers = {"Usual", "Jelly", "Fantastic"};
         int layers_quan = 2;
@@ -25,7 +32,7 @@ class BiscuitTest {
     }
 
     @Test
-    public void testOverlyCalorific() throws DataValidationException {
+    public void testOverlyCalorific() {
         //WHAT
         Biscuit testSample;
         float calories = 1200;
@@ -39,4 +46,4 @@ class BiscuitTest {
         //THEN
         assertNotEquals(calories, testSample.getCalories(), 0.0);
     }
-} 
+}

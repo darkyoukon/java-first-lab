@@ -3,6 +3,8 @@ package ConfectioneryPack;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
 
 public class CocoaTest {
     @Test
@@ -44,5 +46,18 @@ public class CocoaTest {
 
         //THEN
         assertTrue(test_hot_usual_cocoa.getSize() == 2);
+    }
+
+    @Test
+    public void testCheckCocoaInvokeSugarMethod() {
+        //WHAT
+        Sugar cafe_sugar = new Sugar(1115, 100, true, SugarType.Sanding, 2);
+        Cocoa test_hot_usual_cocoa = mock(Cocoa.class);
+
+        //WHEN
+        test_hot_usual_cocoa.changeSugarCharacteristics(SugarType.Confectioners, 3);
+        //THEN
+//        when(mocked_biscuit.get_layers_quantity()).thenReturn(3);
+        verify(test_hot_usual_cocoa).changeSugarCharacteristics(SugarType.Confectioners, 3);
     }
 }

@@ -3,6 +3,7 @@ package ConfectioneryPack;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 public class OrderTest {
     @Test
@@ -20,13 +21,17 @@ public class OrderTest {
         cocoa.addZephyr(marsh_starbucks);
 
         String [] layers = {"Usual", "Jelly", "Fantastic"};
+        String [] layers_second = {"Jelly", "Fantastic"};
 
         //WHEN
         try {
             Biscuit cafe_biscuit = new Biscuit(313,  150, true,
                     FlourType.Rye, 3, layers);
+            Biscuit cafe_biscuit_second = new Biscuit(121,  120, true,
+                    FlourType.Rye, 2, layers_second);
 
             order = new Order(cocoa, cafe_biscuit);
+            order.addBiscuit(cafe_biscuit_second);
         } catch (DataValidationException err) {
             err.printStackTrace();
             System.out.println("Difference between written manually layers quan and array length is " + err.getInsufficientQuantity());
@@ -35,7 +40,7 @@ public class OrderTest {
 
         //THEN
         assertTrue(order.getCocoas().size() == 1);
-        assertTrue(order.getBiscuits().size() == 1);
+        assertTrue(order.getBiscuits().size() == 2);
     }
 
     @Test
