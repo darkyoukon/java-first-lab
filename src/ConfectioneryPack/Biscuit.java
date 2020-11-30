@@ -15,6 +15,12 @@ public class Biscuit extends Flour {
         layer = new Layer(l_quan, l_types);
     }
 
+    public Biscuit(int _number, float _calories, boolean _availability, FlourType flour, Layer sample)
+            throws DataValidationException {
+        super(_number, _calories, _availability, flour);
+        layer = sample;
+    }
+
     @Override
     public float getCalories() {
         if (super.getFlourType() == FlourType.Wheat || super.getFlourType() == FlourType.Porridge) {
@@ -34,7 +40,7 @@ public class Biscuit extends Flour {
         return "There're " + layer.layers_quantity + " total layers in yours biscuit: " + this.getAllLayers();
     }
 
-    private class Layer {
+    public static class Layer {
         private int layers_quantity;
         private ArrayList<String> layers_types;
 
