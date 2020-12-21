@@ -8,15 +8,16 @@ import ConfectioneryPack.FlourType;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
 
 class BiscuitTest {
 
     @Test
-    public void testIndexOutOfBoundsException() throws DataValidationException {
+    public void testIndexOutOfBoundsException()  {
         //WHAT
         String [] layers = {"Usual", "Jelly", "Fantastic"};
         int layers_quan = 2;
-        Biscuit testSample;
 
         //WHEN
         Exception exception = assertThrows(DataValidationException.class, () -> {
@@ -31,7 +32,7 @@ class BiscuitTest {
     }
 
     @Test
-    public void testOverlyCalorific() throws DataValidationException {
+    public void testOverlyCalorific() {
         //WHAT
         Biscuit testSample;
         float calories = 1200;
