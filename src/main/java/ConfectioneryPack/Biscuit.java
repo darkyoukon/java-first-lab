@@ -35,6 +35,8 @@ public class Biscuit extends Flour {
     }
     public int get_layers_quantity() { return layer.get_layer_quantity(); }
 
+    public void setLayersTypes(String str_type) { layer.addLayers_types(str_type); }
+
     @Override
     public String toString() {
         return "There're " + layer.layers_quantity + " total layers in yours biscuit: " + this.getAllLayers();
@@ -52,6 +54,15 @@ public class Biscuit extends Flour {
             }
         }
 
+        public Layer(int quantity, ArrayList<String> types) {
+            layers_quantity = quantity;
+            layers_types = types;
+        }
+
         public int get_layer_quantity() { return layers_quantity; }
+
+        public void addLayers_types(String str_type) {
+            layers_types.add(str_type);
+        }
     }
 }
